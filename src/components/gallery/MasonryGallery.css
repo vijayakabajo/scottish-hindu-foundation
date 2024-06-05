@@ -1,0 +1,20 @@
+.masonry-gallery {
+  padding: 1rem;
+}
+
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3%;
+}
