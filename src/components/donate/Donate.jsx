@@ -4,6 +4,7 @@ import Herosection from "../herosection/Herosection";
 import Introcard from "./Introcard";
 import Donationscards from "./Donationscards";
 import Bankdetails from "./Bankdetails";
+import React from 'react';
 
 const Donate = () => {
   return (
@@ -24,7 +25,7 @@ const Donate = () => {
       <div className="mt-16 mb-4">
         <h1 className="text-4xl font-bold text-center text-shfOrange my-6 underline md:no-underline">Make An Impact</h1>
         {/* CArds */}
-        <div className="px-4 w-full flex-col justify-center items-center space-y-16 
+        <div className="px-4 w-full flex flex-col justify-center items-center space-y-16 
         md:inline-flex md:flex-row sm:space-x-6 lg:space-x-16 sm:px-8 lg:px-32 md:space-y-0">
           <Donationscards
             src="/Images/donate/card-2-1.png"

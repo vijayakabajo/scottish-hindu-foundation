@@ -1,10 +1,11 @@
 // src/components/events/Events.jsx
 import { useState } from 'react';
-// import Footer from "../footer/Footer";
+import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import EventCard from "./Eventcard";
 import Herosection from "../herosection/Herosection";
 import PopupEvent from './PopupEvent';
+import React from 'react';
 
 
 const Events = () => {
@@ -142,8 +143,8 @@ const Events = () => {
           </div>
         </div>
       </div>
-      <PopupEvent/>
-      {/* <Footer /> */}
+      {/* <PopupEvent/> */}
+      <Footer />
     </>
   );
 };

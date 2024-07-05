@@ -18,6 +18,7 @@
 // };
 // ;
 // export default Mantra;
+import React from 'react';
 
 
 const Mantra = () => {

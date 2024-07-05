@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Aboutbody1 = () => {
   return (
     <div className="flex flex-col items-center justify-center my-10 mx-3 md:flex-row md:space-x-4

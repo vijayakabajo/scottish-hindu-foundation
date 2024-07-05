@@ -1,54 +1,88 @@
-
-import './MasonryGallery.css';
-import { useState } from 'react';
-
-const allImages = [
-  // Add more image URLs here for the "Load More" functionality
-  'https://via.placeholder.com/300x400',
-  'https://via.placeholder.com/400x300',
-  'https://via.placeholder.com/300x500',
-  'https://via.placeholder.com/500x300',
-  'https://via.placeholder.com/300x450',
-  'https://via.placeholder.com/450x300',
-  'https://via.placeholder.com/300x400',
-  'https://via.placeholder.com/400x300',
-  'https://via.placeholder.com/500x400',
-  'https://via.placeholder.com/400x500',
-  'https://via.placeholder.com/450x350',
-  'https://via.placeholder.com/350x450',
-];
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Masonry from "@mui/lab/Masonry";
+import { Box, Button, CircularProgress, Typography } from "@mui/material";
 
 const MasonryGallery = () => {
+  const [images, setImages] = useState([]);
   const [visibleImages, setVisibleImages] = useState(6);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchImages = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get("http://localhost:5000/api/images");
+      setImages(response.data);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const loadMoreImages = () => {
     setVisibleImages((prevVisibleImages) => prevVisibleImages + 6);
   };
 
-  const allImagesLoaded = visibleImages >= allImages.length;
+  const allImagesLoaded = images.length <= visibleImages;
 
   return (
-    <div className="masonry-gallery">
-      <div className="masonry-grid">
-        {allImages.slice(0, visibleImages).map((src, index) => (
-          <div key={index} className="masonry-item">
-            <img src={src} alt={`Gallery ${index}`} className="w-full h-auto" />
-          </div>
-        ))}
+    <>
+      <div className="textpart my-10">
+        <div className="inline-flex gap-2 justify-center items-center">
+          <p className="text-gray-700 text-md font-semibold">Sneak Peek Into</p>
+          <hr className="w-[60px] border-t-1 border-gray-400 mx-auto" />
+        </div>
+        <h2 className="text-3xl font-bold">Our Gallery</h2>
       </div>
-      <div className="flex justify-center mt-4">
-        {allImagesLoaded ? (
-          <p className="text-gray-500">No more images to load</p>
-        ) : (
-          <button
-            onClick={loadMoreImages}
-            className="bg-shfPurple text-white py-2 px-5 rounded hover:bg-shfOrange transition duration-200"
+
+      <Box className="masonry-gallery" sx={{ width: "100%", minHeight: 829 }}>
+        {isLoading ? (
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100vh"
           >
-            Load More
-          </button>
+            <CircularProgress />
+          </Box>
+        ) : (
+          <>
+            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
+              {images.slice(0, visibleImages).map((image) => (
+                <Box key={image._id}>
+                  <img
+                    src={image.imageUrl}
+                    alt={image.title}
+                    style={{ width: "100%", display: "block" }}
+                  />
+                </Box>
+              ))}
+            </Masonry>
+            <Box display="flex" justifyContent="center" mt={4}>
+              {allImagesLoaded ? (
+                <Typography color="textSecondary">
+                  No more images to load
+                </Typography>
+              ) : (
+                <Button
+                  onClick={loadMoreImages}
+                  variant="contained"
+                  color="primary"
+                  disabled={isLoading}
+                >
+                  Load More
+                </Button>
+              )}
+            </Box>
+          </>
         )}
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
 

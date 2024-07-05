@@ -1,11 +1,10 @@
 import Card from "./Card";
+import React from 'react';
 
 const Workwithus = () => {
   return (
     <>
       <div className="mx-4 my-12 lg:mx-24">
-
-
         <div className="upperPart 2xl:text-center">
           <div className="inline-flex gap-2">
             <p className="text-gray-700 text-md font-semibold">
@@ -16,9 +15,8 @@ const Workwithus = () => {
           <h2 className="text-3xl font-bold">Work With Us</h2>
         </div>
 
-
         {/* CARDS */}
-        <div className="w-full flex flex-col md:flex-row justify-center items-stretch mt-8 gap-6 lg:gap-12">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center mt-8 gap-y-12 md:gap-y-0 md:gap-5 lg:gap-x-12">
           <Card
             src="/Images/homepage/card-2-1.jfif"
             title="Local Volunteers"
@@ -35,8 +33,6 @@ const Workwithus = () => {
             description="There are Global Challenges and the Hindu Ethos of Dharma and Karma are calls to action, & To Make the World a Safe and Better place"
           />
         </div>
-
-
       </div>
     </>
   );

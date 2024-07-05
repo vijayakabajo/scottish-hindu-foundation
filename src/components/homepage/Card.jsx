@@ -1,5 +1,5 @@
 
-
+import React from 'react';
 const Card = ({ src, title, description }) => {
   return (
     <div className="max-w-md overflow-hidden lg:hover:scale-110 transition duration-300 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">

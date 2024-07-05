@@ -1,6 +1,7 @@
 import Footer from "../footer/Footer"
 import Header from "../header/Header"
 import Linksbar from "../header/Linksbar"
+import React from 'react';
 
 import Herosection from "../herosection/Herosection"
 import Aboutbody1 from "./Aboutbody1"

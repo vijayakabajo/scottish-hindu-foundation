@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import React from 'react';
 
 const Bankdetails = () => {
   
@@ -19,7 +20,7 @@ const Bankdetails = () => {
   };
 
   return (
-    <div className="containerdiv bg-orange-100 flex gap-y-14 flex-col md:flex-row md:w-full md:p-8 sm:gap-x-4">
+    <div className="containerdiv bg-orange-100 flex gap-y-14 flex-col py-16 px-2 md:flex-row md:w-full md:p-8 sm:gap-x-4">
       {/* LEFT PART */}
       <div className="left w-full">
         <div className="Text">
@@ -1394,7 +1395,7 @@ const Bankdetails = () => {
               COPY ACCOUNT DETAILS    
             </button>
             {copySuccess && (
-        <div className="absolute text-sm text-center mt-4 p-2 bg-transparent text-grey-300 rounded shadow-lg">
+        <div className="absolute text-sm text-center mt-2 p-2 bg-lime-400 rounded shadow-lg">
           Copied to clipboard!
         </div>
       )}

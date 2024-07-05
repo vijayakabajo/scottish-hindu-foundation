@@ -1,3 +1,4 @@
+import React from 'react';
 const Herosection = ({ imageUrl, heading, description }) => {
     return (
       <div className="relative w-full h-[250px] overflow-hidden">

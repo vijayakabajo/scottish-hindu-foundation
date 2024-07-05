@@ -2,6 +2,9 @@ import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import Herosection from "../herosection/Herosection";
 import MasonryGallery from "./MasonryGallery";
+import React from 'react';
+
+
 
 const Gallery = () => {
   return (
