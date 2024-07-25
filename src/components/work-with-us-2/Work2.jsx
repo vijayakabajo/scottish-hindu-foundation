@@ -5,6 +5,7 @@ import Herosection from "../herosection/Herosection";
 import Dailyactivites from "./Dailyactivites";
 import Governance from "./Governance";
 import Visibilty from "./Visibility";
+import React from "react";
 
 
 const Work2 = () => {

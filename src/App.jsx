@@ -8,6 +8,9 @@ import Donate from './components/donate/Donate';
 import Login from './components/admin/Login';
 import Contact from './components/contact/Contact';
 import Work from './components/work-with-us/Work';
+import Work2 from './components/work-with-us-2/Work2';
+import Logout1 from './components/admin/Logout1';
+import Forget from './components/admin/ForgetRequest'
 
 
 function App() {
@@ -37,12 +40,24 @@ function App() {
       element: <Work />,
     },
     {
+      path: '/workwithus2',
+      element: <Work2 />,
+    },
+    {
       path: '/donate',
       element: <Donate />,
     },
     {
       path: '/login',
       element: <Login/>,
+    },
+    {
+      path: '/forget',
+      element: <Forget/>,
+    },
+    {
+      path: '/logout',
+      element: <Logout1/>,
     },
   ]);
 

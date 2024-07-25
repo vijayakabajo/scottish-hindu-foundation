@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Masonry from "@mui/lab/Masonry";
@@ -32,15 +33,7 @@ const MasonryGallery = () => {
 
   return (
     <>
-      <div className="textpart my-10">
-        <div className="inline-flex gap-2 justify-center items-center">
-          <p className="text-gray-700 text-md font-semibold">Sneak Peek Into</p>
-          <hr className="w-[60px] border-t-1 border-gray-400 mx-auto" />
-        </div>
-        <h2 className="text-3xl font-bold">Our Gallery</h2>
-      </div>
-
-      <Box className="masonry-gallery" sx={{ width: "100%", minHeight: 829 }}>
+      <Box className="masonry-gallery ml-2 mb-8" sx={{ width: "100%", minHeight: 829 }}>
         {isLoading ? (
           <Box
             display="flex"
@@ -58,7 +51,7 @@ const MasonryGallery = () => {
                   <img
                     src={image.imageUrl}
                     alt={image.title}
-                    style={{ width: "100%", display: "block" }}
+                    style={{ width: "100%", display: "block", borderRadius: "10px" }}
                   />
                 </Box>
               ))}
@@ -72,7 +65,9 @@ const MasonryGallery = () => {
                 <Button
                   onClick={loadMoreImages}
                   variant="contained"
-                  color="primary"
+                  // color="primary"
+                  className=""
+                  sx={{ backgroundColor: '#F4911F', color: '#fff', '&:hover': { backgroundColor: '#483081' }, borderRadius: '50px' }}
                   disabled={isLoading}
                 >
                   Load More

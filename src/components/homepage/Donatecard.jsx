@@ -11,13 +11,13 @@ const Donatecard = () => {
       />
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-center">
         <div>
-          <p className="text-bold">Join Us In The Journey!!</p>
-          <h1 className="text-6xl font-bold mt-4">
-            A Tale Of Hindus
+          <p className="text-bold font-montserrat">Join Us In The Journey!!</p>
+          <h1 className="text-5xl font-bold mt-4 font-playfair">
+            A Tale Of Scottish Hindus
             <br />
             In Scotland
           </h1>
-          <p className="text-base font-thin mt-4">
+          <p className="text-sm font-thin mt-4 font-inter">
             Welcome To The Official Website Of The Scottish Hindu Foundation{" "}
             <br />
             We Are Thrilled To Have You Here.
@@ -25,12 +25,12 @@ const Donatecard = () => {
 
           <div className="flex mt-8 justify-center">
             <Link to="/donate">
-              <button className="bg-shfOrange hover:bg-shfPurple transition duration-300 text-white py-2 px-10 mr-4 rounded-full">
+              <button className="bg-shfOrange font-light font-inter hover:bg-shfPurple transition duration-300 text-white py-2 px-10 mr-4 rounded-full">
                 Donate
               </button>
             </Link>
             
-            <button className="bg-transparent hover:bg-red-600 transition duration-300 text-white py-2 px-4 border-2 border-white rounded-full">
+            <button className="bg-transparent hover:bg-red-600 font-inter transition duration-300 text-white py-2 px-4 border-2 border-white rounded-full">
               Report an Issue
             </button>
           </div>

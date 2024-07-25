@@ -1,53 +1,97 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Aboutbody2 = () => {
+  const [aboutContent, setAboutContent] = useState(null);
+
+  useEffect(() => {
+    const fetchAboutContent = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/aboutus2");
+        setAboutContent(response.data);
+      } catch (error) {
+        console.error("Error fetching about us content", error);
+      }
+    };
+    fetchAboutContent();
+  }, []);
+
+  if (!aboutContent) {
+    return <div className="mt-10">Loading...</div>;
+  }
+
   const itemData = [
     {
-      img: '/Images/aboutus/about-image-3.png',
-      title: 'Image 1',
+      img: aboutContent.image1_url,
+      title: "Image 1",
+      aspectRatio: "56.25%",
+      colSpan: "col-span-2",
     },
     {
-      img: '/Images/aboutus/about-image-4.png',
-      title: 'Image 2',
+      img: aboutContent.image2_url,
+      title: "Image 2",
+      aspectRatio: "66.67%",
+      colSpan: "col-span-1",
     },
     {
-      img: '/Images/aboutus/about-image-5.png',
-      title: 'Image 3',
+      img: aboutContent.image3_url,
+      title: "Image 3",
+      aspectRatio: "66.67%",
+      colSpan: "col-span-1",
     },
     {
-      img: '/Images/aboutus/about-image-6.png',
-      title: 'Image 4',
+      img: aboutContent.image4_url,
+      title: "Image 4",
+      aspectRatio: "56.25%",
+      colSpan: "col-span-2",
     },
   ];
 
   return (
-    <div className="flex flex-col-reverse items-center justify-center md:flex-row md:space-x-4 sm:px-16 mt-8 pb-6">
+    <div
+      className="flex flex-col-reverse items-center justify-center md:flex-row md:space-x-4 mt-8
+    sm:mx-4 sm:gap-x-8
+    md:mx-10 md:my-16
+    xl:mx-28"
+    >
       <div className="flex flex-col p-4 md:p-6 space-y-3 md:w-1/2">
-        <p className="text-gray-700 text-sm font-semibold">Our Governance</p>
-        <h1 className="text-2xl font-bold">
-          Let Us Come Together<br />To Make a Difference
-        </h1>
-        <p className="text-gray-700 font-thin">
-          The Scottish Hindu Foundation is registered as a Community Interest
-          Company, is a type of legal structure in the United Kingdom that is
-          specifically designed for social enterprises. CICs are businesses that
-          aim to benefit the community. By registering as a CIC, the Scottish
-          Hindu Foundation strengthens its position as all recognized and
-          sustainable social enterprise, furthering its ability to fulfill its
-          mission of promoting and preserving Hindu culture in Scotland.
-        </p>
-        <button className="bg-shfOrange hover:bg-shfPurple text-white font-bold py-2 px-4 w-fit rounded-full">Contact Us</button>
+        <div className="inline-flex gap-2 items-center">
+          <p className="text-gray-800 text-md font-semibold font-montserrat">
+            {aboutContent.sub_text}
+          </p>
+          <hr className="w-[60px] border-t-1 border-gray-300 my-4" />
+        </div>
+
+        <h1 className="text-3xl font-bold font-playfair">{aboutContent.title}</h1>
+        <p className="text-gray-700 font-inter text-base">{aboutContent.description}</p>
+        <Link to="/contactus">
+          <button className="bg-shfOrange hover:bg-shfPurple text-white font-bold py-2 px-4 w-fit rounded-full">
+            Contact Us
+          </button>
+        </Link>
       </div>
 
-      <div className="md:w-2/5">
-        <div className="grid grid-cols-2 gap-2 border-8 bg-orange-200" style={{ borderColor: "rgba(251, 191, 36, 0.3)" }}>
+      <div className="w-full md:w-2/5">
+        <div
+          className="grid grid-cols-3 gap-2"
+          style={{
+            borderColor: "rgba(251, 191, 36, 0.3)",
+            background: "rgba(251, 191, 36, 0.3)",
+            padding: "10px",
+          }}
+        >
           {itemData.map((item, index) => (
-            <div key={index} className="overflow-hidden" style={{ width: '100%', paddingTop: '56.25%', position: 'relative' }}>
+            <div
+              key={index}
+              className={`relative overflow-hidden ${item.colSpan}`}
+              style={{ paddingBottom: item.aspectRatio }}
+            >
               <img
                 src={item.img}
                 alt={item.title}
                 loading="lazy"
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           ))}

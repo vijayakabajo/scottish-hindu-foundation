@@ -7,12 +7,12 @@ const Workwithus = () => {
       <div className="mx-4 my-12 lg:mx-24">
         <div className="upperPart 2xl:text-center">
           <div className="inline-flex gap-2">
-            <p className="text-gray-700 text-md font-semibold">
+            <p className="text-gray-700 text-md font-semibold font-montserrat">
               We Can Do Better
             </p>
             <hr className="w-[60px] border-t-1 border-gray-400 my-4 mx-auto" />
           </div>
-          <h2 className="text-3xl font-bold">Work With Us</h2>
+          <h2 className="text-3xl font-bold font-playfair">Work With Us</h2>
         </div>
 
         {/* CARDS */}

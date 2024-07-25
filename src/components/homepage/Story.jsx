@@ -18,7 +18,7 @@ const Story = () => {
   }, []);
 
   if (!content) {
-    return <div>Loading...</div>;
+    return <div className='mt-10 flex justify-center'>Loading...</div>;
   }
 
   return (
@@ -46,13 +46,13 @@ const Story = () => {
       <div className="flex flex-col mt-7 md:mt-0 md:w-1/2 lg:w-2/3 justify-center">
         <hr className="w-[50px] border-t-1 border-shfOrange" />
         {/* sub-text */}
-        <p className="text-gray-700 text-md font-semibold">
+        <p className="text-gray-700 text-sm font-semibold font-montserrat">
           {content.sub_text}
         </p>
         {/* title */}
-        <h1 className="text-3xl font-bold">{content.title}</h1>
+        <h1 className="text-3xl font-bold font-playfair">{content.title}</h1>
         {/* description */}
-        <p className="text-gray-700 mt-3">{content.description}</p>
+        <p className="text-gray-700 mt-3 font-montserrat text-sm">{content.description}</p>
 
         {/* Button */}
         <Link to="/about">

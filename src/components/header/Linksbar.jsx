@@ -1,20 +1,15 @@
 import { Link } from "react-router-dom";
-import React from 'react';
+import React from "react";
 
 const Linksbar = () => {
   return (
-    <div
-      className="flex justify-center top-0 items-center p-2 bg-linksBar px-8
-        md:justify-between
-      "
-    >
+    <div className="flex justify-center items-center py-1 bg-linksBar px-8 md:justify-between">
       <div className="flex space-x-5 md:space-x-4">
-        
         <a
           href="https://www.facebook.com/ScottishHinduFoundation"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 text-xl hover:text-gray-600"
+          className="text-gray-800 text-xl hover:text-gray-600 xl:hover:scale-125 transition duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +44,7 @@ const Linksbar = () => {
           href="https://www.instagram.com/scottish_hindu_foundation/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 text-xl hover:text-gray-600"
+          className="text-gray-800 text-xl hover:text-gray-600 xl:hover:scale-125 transition duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +150,7 @@ const Linksbar = () => {
           href="https://twitter.com/ScotHinduFdn"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-800 text-xl hover:text-gray-600"
+          className="text-gray-800 text-xl hover:text-gray-600 xl:hover:scale-125 transition duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

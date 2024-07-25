@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import React from 'react';
+import React from "react";
 
 const Bankdetails = () => {
-  
-
   const [copySuccess, setCopySuccess] = useState(false);
 
-  const textToCopy = "Account Number:brbbsbefbrb\nBeneficiar Name:brfdbbfb vrvsr\nIFSC Code:gdsv";
+  const textToCopy =
+    "Account Number:brbbsbefbrb\nBeneficiar Name:brfdbbfb vrvsr\nIFSC Code:gdsv";
 
   const copyToClipboard = async () => {
     try {
@@ -15,7 +14,7 @@ const Bankdetails = () => {
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 1000); // Hide the popup after 0.5 seconds
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
   };
 
@@ -24,14 +23,14 @@ const Bankdetails = () => {
       {/* LEFT PART */}
       <div className="left w-full">
         <div className="Text">
-          <h1 className="font-bold text-2xl">Donate Here</h1>
-          <p>
+          <h1 className="font-bold text-2xl font-playfair">Donate Here</h1>
+          <p className="font-inter">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
             laudantium.
           </p>
         </div>
         {/* QRandText */}
-        <div className="QRandText inline-flex justify-center mt-4 items-center bg-white rounded-3xl px-8 py-2">
+        <div className="QRandText inline-flex justify-center mt-4 items-center bg-white rounded-3xl px-8 py-2 font-inter">
           <div className="QR">
             <svg
               width="109"
@@ -1344,8 +1343,10 @@ const Bankdetails = () => {
           </div>
           <p className="text-shfOrange font-medium">Scan This QR To Donate</p>
         </div>
-        <div className="pt-4">
-          <h2 className="font-semibold mb-3">Accepted Payment Methods</h2>
+        <div className="pt-4 font-inter">
+          <h2 className="font-semibold mb-3 font-playfair">
+            Accepted Payment Methods
+          </h2>
           <div className="PaymentIcons inline-flex justify-center items-center bg-white rounded-full px-4">
             <Link to="">
               <img src="/Images/donate/pay-visa.png" alt="pay-visa" />
@@ -1367,10 +1368,10 @@ const Bankdetails = () => {
       </div>
 
       {/* RIGHT PART */}
-      <div className="right w-full">
+      <div className="right w-full font-inter">
         <div>
           <div className="Text">
-            <h1 className="font-bold text-2xl">Bank Details</h1>
+            <h1 className="font-bold text-2xl font-playfair">Bank Details</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
               laudantium.
@@ -1385,20 +1386,23 @@ const Bankdetails = () => {
             <div className="inline-flex flex-col">
               <p className="text-shfOrange font-base">2223330xxxxxxxxx</p>
               <p className="text-shfOrange font-base">
-                Scottish Hindu Foundation</p>
+                Scottish Hindu Foundation
+              </p>
               <p className="text-shfOrange font-base">WRDSBIOBNKPIS</p>
             </div>
           </div>
-          <div className="button mt-8">
-            <button className="bg-shfOrange px-4 py-2 rounded-md text-white font-base"
-            onClick={copyToClipboard}>
-              COPY ACCOUNT DETAILS    
+          <div className="button mt-8 flex justify-center sm:justify-start">
+            <button
+              className="bg-shfOrange px-4 py-2 rounded-full text-white"
+              onClick={copyToClipboard}
+            >
+              COPY ACCOUNT DETAILS
             </button>
             {copySuccess && (
-        <div className="absolute text-sm text-center mt-2 p-2 bg-lime-400 rounded shadow-lg">
-          Copied to clipboard!
-        </div>
-      )}
+              <div className="absolute text-sm text-center mt-12 p-2 bg-gray-200 rounded shadow-lg text-gray-700">
+                Copied to clipboard!
+              </div>
+            )}
           </div>
         </div>
       </div>

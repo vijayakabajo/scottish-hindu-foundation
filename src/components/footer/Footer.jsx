@@ -1,20 +1,38 @@
-
-import React from 'react';
+import React from "react";
 import Logo from "../header/Logo";
 import Subscribe from "./Subscribe";
 import Footercontent from "./Footercontent";
+import Watermark from "./Watermark";
 
 const Footer = () => {
   return (
-    <div className="bg-shfPurple w-full flex flex-col items-center justify-center gap-y-8 py-8 sm:flex-row sm:justify-around lg:pt-8 lg:pb-">
-      <div className="hidden lg:block w-full justify-center">
-        <div className="bg-white flex justify-center items-center w-1/2 ml-16">
-          <Logo logoUrl="\Images\fullLogoSHF.png" />
+    <>
+      <div className="bg-shfPurple w-full flex flex-col justify-center gap-y-8 sm:flex-row sm:justify-around py-24">
+        <div className="flex justify-center sm:hidden lg:flex">
+          <img
+            className="h-14 rounded-md"
+            src="\Images\logo-white-bg.jpg"
+            alt="SHF-Logo"
+          />
         </div>
-      </div> 
-      <Footercontent />
-      <Subscribe />
-    </div>
+        <div>
+          <Footercontent />
+        </div>
+        <div className="space-y-0 sm:space-y-20 lg:space-y-0">
+          <div className="sm:flex sm:justify-center hidden lg:hidden">
+            <img
+              className="h-14 rounded-md"
+              src="\Images\logo-white-bg.jpg"
+              alt="SHF-Logo"
+            />
+          </div>
+          <div>
+            <Subscribe />
+          </div>
+        </div>
+      </div>
+      <Watermark/>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import styles from "./Dailyactivites.module.css"
 import Card from "./Card";
+import React from "react";
 
 const Dailyactivites = () => {
     return (
