@@ -29,7 +29,7 @@ const ResetPassword = () => {
 
   return (
     <div className="h-screen flex items-center justify-center text-gray-300 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: 'url("Images/admin/login-bg.jpg")' }}></div>
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("Images/admin/login-bg.png")' }}></div>
       <div className="relative bg-white bg-opacity-10 backdrop-blur-md px-4 sm:px-16 py-8 rounded-3xl shadow-2xl w-full max-w-lg m-2">
         <h2 className="text-2xl font-base mb-6 text-center">Forgot Password</h2>
         <form onSubmit={handleSubmit}>

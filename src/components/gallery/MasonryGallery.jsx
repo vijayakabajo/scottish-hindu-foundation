@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Masonry from "@mui/lab/Masonry";
@@ -8,6 +7,7 @@ const MasonryGallery = () => {
   const [images, setImages] = useState([]);
   const [visibleImages, setVisibleImages] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
+  const [columns, setColumns] = useState(3); // default to 3 columns
 
   const fetchImages = async () => {
     setIsLoading(true);
@@ -21,8 +21,18 @@ const MasonryGallery = () => {
     }
   };
 
+  const fetchColumnsConfig = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/masonryconfig");
+      setColumns(response.data.columns);
+    } catch (error) {
+      console.error("Error fetching columns configuration:", error);
+    }
+  };
+
   useEffect(() => {
     fetchImages();
+    fetchColumnsConfig();
   }, []);
 
   const loadMoreImages = () => {
@@ -45,7 +55,7 @@ const MasonryGallery = () => {
           </Box>
         ) : (
           <>
-            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
+            <Masonry columns={{ xs: 1, sm: 2, md: columns }} spacing={2}>
               {images.slice(0, visibleImages).map((image) => (
                 <Box key={image._id}>
                   <img
@@ -65,8 +75,6 @@ const MasonryGallery = () => {
                 <Button
                   onClick={loadMoreImages}
                   variant="contained"
-                  // color="primary"
-                  className=""
                   sx={{ backgroundColor: '#F4911F', color: '#fff', '&:hover': { backgroundColor: '#483081' }, borderRadius: '50px' }}
                   disabled={isLoading}
                 >
